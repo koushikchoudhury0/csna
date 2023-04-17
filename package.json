@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start:dev": "nodemon dist/index.js",
-    "start:prod": "pm2 start dist/index.js"
+    "start:prod": "pm2 start dist/index.js --name=csna"
   },
   "keywords": [],
   "author": "",
