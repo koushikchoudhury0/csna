@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { router as UserController } from '../controllers/users.controller.js';
+import { router as TodoController } from '../controllers/todo.controller.js';
+import { router as PostsController } from '../controllers/posts.controller.js';
+import { authorizeUser } from '../helpers/auth.helper.js';
+const router = Router();
+router.use('/users', UserController);
+router.use('/todo', authorizeUser, TodoController);
+router.use('/posts', authorizeUser, PostsController);
+export { router };
