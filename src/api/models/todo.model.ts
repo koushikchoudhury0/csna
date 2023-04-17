@@ -15,4 +15,4 @@ todoSchema.index({ user: 1, title: 1 }, { unique: true });
 
 const todoModel = mongoose.model('todo', todoSchema);
 
-export { todoModel }
+export { todoModel };

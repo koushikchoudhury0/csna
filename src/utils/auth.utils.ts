@@ -25,7 +25,7 @@ const createAccessToken = (
         }
     );
     return accessToken;
-}
+};
 
 const createRefreshToken = (
     id: mongoose.Types.ObjectId,
@@ -46,7 +46,7 @@ const createRefreshToken = (
         }
     );
     return accessToken;
-}
+};
 
 const getTokens = (
     id: mongoose.Types.ObjectId,
@@ -59,8 +59,8 @@ const getTokens = (
     return {
         refreshToken,
         accessToken
-    }
-}
+    };
+};
 
 const verifyAccessTokens = (
     token: string
@@ -69,7 +69,7 @@ const verifyAccessTokens = (
         token.split(" ")[1],
         String(process.env.JWT_ACCESS_SECRET)
     );
-}
+};
 
 const rotateTokens = (_refreshToken: string) => {
     const data: any = JWT.verify(
@@ -81,12 +81,12 @@ const rotateTokens = (_refreshToken: string) => {
     const { id, name, sub } = data;
     const admin = sub === USER_SUBJECT.ADMIN;
     return getTokens(id, name, admin);
-}
+};
 
 const getUserFromRequest = (accessHeader: string) => {
     const { id, name } = JSON.parse(accessHeader);
     return { id, name };
-}
+};
 
 export {
     getTokens,

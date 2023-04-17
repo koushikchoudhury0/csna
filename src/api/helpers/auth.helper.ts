@@ -17,14 +17,14 @@ const authorizeUser: RequestHandler = (req, res, next) => {
         console.error(err);
         res.sendStatus(codes.UNAUTHORIZED);
     }
-}
+};
 
 const authorizeAdmin: RequestHandler = (req, res, next) => {
     console.log("ADMIN AUTH");
     try {
         const access = JSON.parse(String(req.headers['access']));
         if (access.sub === USER_SUBJECT.ADMIN) {
-            next()
+            next();
         } else {
             throw new CustomError(
                 `[BLOCKED] User: ${access.id} Reason: NO_ADMIN Type: ${access.subject} Path: ${req.url}`
@@ -34,7 +34,7 @@ const authorizeAdmin: RequestHandler = (req, res, next) => {
         console.error(err);
         res.sendStatus(codes.UNAUTHORIZED);
     }
-}
+};
 
 const login = async (
     email: string,
@@ -59,8 +59,8 @@ const login = async (
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email
-    }
+    };
     return loginData;
-}
+};
 
 export { login, authorizeUser, authorizeAdmin };

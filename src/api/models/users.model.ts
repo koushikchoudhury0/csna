@@ -12,4 +12,4 @@ usersSchema.index({ email: 1 }, { unique: true });
 
 const usersModel = mongoose.model('users', usersSchema);
 
-export { usersModel }
+export { usersModel };

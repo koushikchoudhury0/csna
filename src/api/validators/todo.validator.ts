@@ -73,7 +73,7 @@ export const getTodoValidator: RequestHandler = (req, res, next) => {
     } else {
         next();
     }
-}
+};
 
 export const getOtherTodoValidator: RequestHandler = (req, res, next) => {
     const schema = Joi.object().keys({
@@ -88,7 +88,7 @@ export const getOtherTodoValidator: RequestHandler = (req, res, next) => {
     } else {
         next();
     }
-}
+};
 
 export const deleteTodoValidator: RequestHandler = (req, res, next) => {
     const paramsSchema = Joi.object().keys({
@@ -103,5 +103,5 @@ export const deleteTodoValidator: RequestHandler = (req, res, next) => {
     } else {
         next();
     }
-}
+};
 

@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { postsModel } from "../models/posts.model.js";
 import { createDataWithPageMeta } from "../../utils/page.util.js";
 import { MongoDeleteResult, MongoUpdateResult } from "../../types/mongo-results.interface.js";
@@ -25,22 +24,22 @@ export const handlePostUpdate = (
     data: MongoUpdateResult
 ): CustomError | boolean => {
     if (!data.matchedCount) {
-        return new CustomError(errors.NO_MATCH)
+        return new CustomError(errors.NO_MATCH);
     }
     if (!data.modifiedCount && !data.upsertedCount) {
-        return new CustomError(errors.NO_MODIFICATION)
+        return new CustomError(errors.NO_MODIFICATION);
     }
     return true;
-}
+};
 
 export const handlePostDelete = (
     data: MongoDeleteResult
 ): CustomError | boolean => {
     if (!data.deletedCount) {
-        return new CustomError(errors.NO_MATCH)
+        return new CustomError(errors.NO_MATCH);
     }
     return true;
-}
+};
 
 export const getPostsByUserId = async (
     userId: string,
@@ -59,5 +58,5 @@ export const getPostsByUserId = async (
         documentCount,
         page + 1,
         size
-    )
-}
+    );
+};

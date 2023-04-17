@@ -22,8 +22,9 @@ router.post(
         usersModel
             .create(req.body)
             .then((user) => {
-                const { password, ...rest } = user.toJSON();
-                res.send(rest);
+                const userData: any = user.toJSON();
+                delete userData.password;
+                res.send(userData);
             }).catch((err) => {
                 res.status(ERROR).send(
                     handleSignUpError(err, VERBOSITY.MSG_ONLY)
@@ -55,11 +56,11 @@ router.post(
     rotationValidator,
     (req, res) => {
         try {
-            res.send(rotateTokens(req.body.refreshToken))
+            res.send(rotateTokens(req.body.refreshToken));
         } catch (err) {
             res.status(ERROR).send(
                 handleGenericError(err)
             );
         }
     }
-)
+);

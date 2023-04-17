@@ -9,6 +9,6 @@ const hash = (password: string): string => {
         64,
         `sha512`
     ).toString(`hex`);
-}
+};
 
 export { hash };

@@ -25,7 +25,7 @@ const executeErrorVerbosity = (
             // Resolves to VERBOSITY.STACK_TRACE
             console.error(err);
     }
-}
+};
 
 export const handleSignUpError = (
     err: any, verbosity:
@@ -34,8 +34,8 @@ export const handleSignUpError = (
     executeErrorVerbosity(verbosity, err);
     return err.code === MongoDBCodes.DUPLICATE
         ? EMAIL_EXISTS
-        : GENERIC
-}
+        : GENERIC;
+};
 
 export const handleLoginError = (
     err: any, verbosity:
@@ -44,8 +44,8 @@ export const handleLoginError = (
     executeErrorVerbosity(verbosity, err);
     return err instanceof CustomError
         ? NO_SUCH_USER
-        : GENERIC
-}
+        : GENERIC;
+};
 
 export const handleWriteTodoError = (
     err: any, verbosity:
@@ -54,8 +54,8 @@ export const handleWriteTodoError = (
     executeErrorVerbosity(verbosity, err);
     return err.code === MongoDBCodes.DUPLICATE
         ? TITLE_EXISTS
-        : GENERIC
-}
+        : GENERIC;
+};
 
 export const handleGenericError = (
     err: any, verbosity:
@@ -63,4 +63,4 @@ export const handleGenericError = (
 ) => {
     executeErrorVerbosity(verbosity, err);
     return GENERIC;
-}
+};

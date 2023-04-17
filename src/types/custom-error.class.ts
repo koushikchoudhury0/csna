@@ -1,5 +1,5 @@
 export class CustomError {
-    readonly _msg: string
+    readonly _msg: string;
 
     constructor(msg: string) {
         this._msg = msg;

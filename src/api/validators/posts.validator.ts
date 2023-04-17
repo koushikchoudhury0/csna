@@ -9,7 +9,7 @@ export const writePostValidator: RequestHandler = (
         content: Joi.string()
             .min(1)
             .max(1000)
-            .regex(/^[a-z0-9 \#,.'-]+$/i)
+            .regex(/^[a-z0-9 #,.'-]+$/i)
             .required()
     });
     const validation = schema.validate(req.body);
@@ -19,7 +19,7 @@ export const writePostValidator: RequestHandler = (
     } else {
         next();
     }
-}
+};
 
 export const updatePostValidator: RequestHandler = (
     req, res, next
@@ -36,7 +36,7 @@ export const updatePostValidator: RequestHandler = (
     } else {
         next();
     }
-}
+};
 
 export const getUserPostValidator: RequestHandler = (
     req, res, next
@@ -53,7 +53,7 @@ export const getUserPostValidator: RequestHandler = (
     } else {
         next();
     }
-}
+};
 
 export const deleteCommentValidator: RequestHandler = (
     req, res, next
@@ -73,7 +73,7 @@ export const deleteCommentValidator: RequestHandler = (
     } else {
         next();
     }
-}
+};
 
 export const addCommentValidator: RequestHandler = (
     req, res, next
@@ -82,7 +82,7 @@ export const addCommentValidator: RequestHandler = (
         text: Joi.string()
             .min(1)
             .max(200)
-            .regex(/^[a-z0-9 \#,.'-]+$/i)
+            .regex(/^[a-z0-9 #,.'-]+$/i)
             .required()
     });
     const validation = schema.validate(req.body);
@@ -92,4 +92,4 @@ export const addCommentValidator: RequestHandler = (
     } else {
         next();
     }
-}
+};

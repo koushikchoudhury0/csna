@@ -17,6 +17,6 @@ router.patch('/:id', (req, res) => {
         .catch((err) => res.status(codes.ERROR).send(
             handleGenericError(err)
         ));
-})
+});
 
 export { router };

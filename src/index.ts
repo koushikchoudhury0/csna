@@ -13,13 +13,9 @@ app.use(express.json());
 app.use(rateLimiter());
 app.use('/api', router);
 
-//TODO: Project is now a module, convert this into await
-mongoose.connect(dbConnectionStr || '').then(() => {
-    app.listen(port, () => {
-        console.log(`Server running @ ${port}`);
-    });
-}).catch((err) => {
-    //TODO: Handle DB Init Error
+await mongoose.connect(dbConnectionStr || '');
+app.listen(port, () => {
+    console.log(`Server running @ ${port}`);
 });
 
 

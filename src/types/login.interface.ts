@@ -9,4 +9,4 @@ interface LoginData {
     email: string
 }
 
-export { LoginData }
+export { LoginData };

@@ -23,4 +23,4 @@ postsSchema.index({ user: 1 });
 
 const postsModel = mongoose.model('posts', postsSchema);
 
-export { postsModel }
+export { postsModel };

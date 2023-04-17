@@ -22,7 +22,7 @@ export const getTodosByUserId = async (
         documentCount,
         page + 1,
         size
-    )
+    );
 };
 
 export const updateTodo = (
@@ -63,19 +63,19 @@ export const handleTodoUpdate = (
     data: MongoUpdateResult
 ): CustomError | boolean => {
     if (!data.matchedCount) {
-        return new CustomError(errors.NO_MATCH)
+        return new CustomError(errors.NO_MATCH);
     }
     if (!data.modifiedCount && !data.upsertedCount) {
-        return new CustomError(errors.NO_MODIFICATION)
+        return new CustomError(errors.NO_MODIFICATION);
     }
     return true;
-}
+};
 
 export const handleTodoDelete = (
     data: MongoDeleteResult
 ): CustomError | boolean => {
     if (!data.deletedCount) {
-        return new CustomError(errors.NO_MATCH)
+        return new CustomError(errors.NO_MATCH);
     }
     return true;
-}
+};
