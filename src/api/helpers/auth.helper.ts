@@ -7,7 +7,6 @@ import { usersModel } from "../models/users.model.js";
 import { USER_SUBJECT } from "../../constants/auth.constants.js";
 
 const authorizeUser: RequestHandler = (req, res, next) => {
-    console.log("USER AUTH");
     try {
         const accessToken = String(req.headers['authorization']);
         const access = verifyAccessTokens(accessToken);
@@ -20,7 +19,6 @@ const authorizeUser: RequestHandler = (req, res, next) => {
 };
 
 const authorizeAdmin: RequestHandler = (req, res, next) => {
-    console.log("ADMIN AUTH");
     try {
         const access = JSON.parse(String(req.headers['access']));
         if (access.sub === USER_SUBJECT.ADMIN) {
